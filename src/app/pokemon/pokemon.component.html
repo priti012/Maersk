@@ -1,0 +1,30 @@
+<div>
+    
+    <input type ="text" [(ngModel)] ="nameText" (ngModelChange)="searchByName($event)"> Search by name
+    <input type ="text" [(ngModel)] ="abilitiesText" (ngModelChange)="searchByabilities($event)"> Search by abilities
+</div>
+<div>
+    <button (click) ="sortByName()">sort by name</button>
+    <button (click) ="sortByHeight()">sort by height</button>
+    <button (click) ="sortByWeight()">sort by weight</button>
+</div>
+<div *ngFor ="let i of pokemonListToShow; let indexOfelement=index;">
+    <div class ="main">
+        <div  class ="main" *ngIf = " imageList && imageList[indexOfelement] "> 
+            <img src = "{{ imageList[indexOfelement] }}" alt="Flowers in Chania" width ="100px" height="100px"> 
+        </div>
+        <div class ="main">
+              {{ i.name }} 
+        </div>
+        
+    </div>
+   
+</div>
+
+<div class ="paginationClass">
+
+    <pagination [totalItems]="100" [itemsPerPage]="6" [(ngModel)]="page" [boundaryLinks]="true" [maxSize]="7"
+        previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"
+        (pageChanged)="onPageChange($event)">
+    </pagination>
+</div>

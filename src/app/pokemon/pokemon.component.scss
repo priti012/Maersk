@@ -1,0 +1,12 @@
+.main {
+    display: flex;
+
+}
+ ::ng-deep .pagination li.page-item{
+    display: inline;
+    padding: 10px;
+    margin: 10px;
+}
+::ng-deep .pagination li.page-item.active{
+    background: red;
+}
